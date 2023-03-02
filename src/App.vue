@@ -35,7 +35,11 @@ export default {
 </script>
 
 <template>
-  <ProjectCard />
+  <main>
+    <h1 class="mb-5">My Projects</h1>
+    <!-- Import Cards -->
+    <ProjectCard />
+  </main>
 </template>
 
 <style lang="scss">
