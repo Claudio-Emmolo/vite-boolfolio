@@ -40,9 +40,10 @@ export default {
                 project.difficulty }})
             </h6>
 
-
+            <!-- Technologies -->
             <div class="technologies mb-5">
-              <span v-for="technology in project.technologies" class=" badge bg-success m-1 p-1">
+              <span v-for="technology in project.technologies" class="badge m-1 p-1"
+                :style="{ 'background-color': technology.color_tag }">
                 {{ technology.name }}
               </span>
             </div>
