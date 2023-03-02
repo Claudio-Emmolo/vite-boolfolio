@@ -10,22 +10,36 @@ export default {
   data() {
     return {
       store,
-      apiUrl: 'http://127.0.0.1:8000/api/projects'
+      apiUrl: 'http://127.0.0.1:8000/api/projects',
+      pageControl: [],
     }
   },
   methods: {
     getProjects() {
       axios.get(this.apiUrl, {
-        params: {}
+        params: {
+        }
       })
-        .then(function (response) {
+        .then((response) => {
           console.log(response.data.results.data);
           store.dbProjects = response.data.results.data;
+          this.pageControl = response.data.results;
         })
         .catch(function (error) {
           console.log(error);
         })
+    },
+
+
+    prevPage() {
+      this.apiUrl = this.pageControl.prev_page_url;
+      this.getProjects();
+    },
+    nextPage() {
+      this.apiUrl = this.pageControl.next_page_url;
+      this.getProjects();
     }
+
   },
 
   created() {
@@ -38,7 +52,7 @@ export default {
   <main>
     <h1 class="mb-5">My Projects</h1>
     <!-- Import Cards -->
-    <ProjectCard />
+    <ProjectCard @nextPageClick="nextPage()" @prevPageClick="prevPage()" />
   </main>
 </template>
 

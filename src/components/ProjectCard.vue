@@ -30,7 +30,7 @@ export default {
           <div class="text-box text-start">
             <h3 class="fw-bold mb-2">{{ project.title }}</h3>
             <h6 class="text-uppercase">{{ project.date }}</h6>
-            <h6 class="fw-bold mb-3">Difficulty -
+            <h6 class="mb-3">Difficulty -
               <span v-for="star in project.difficulty"><i class="fa-solid fa-star text-warning me-1"></i></span>({{
                 project.difficulty }})
             </h6>
@@ -45,11 +45,30 @@ export default {
 
 
           <div class="button-more position-absolute bottom-0 end-0 m-3">
-            <a href="#" class="btn btn-primary mt-5 fw-bold">Show More</a>
+            <a href="#" class="btn btn-primary mt-5 bnt-text text-uppercase">Show More</a>
           </div>
         </div>
 
       </div>
+    </div>
+
+    <div class="pagination mt-5 d-flex justify-content-center">
+
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <button class="page-link" @click="$emit('prevPageClick')" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </button>
+          </li>
+          <li class="page-item">
+            <button class="page-link" @click="$emit('nextPageClick')" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+
     </div>
   </section>
 </template>
