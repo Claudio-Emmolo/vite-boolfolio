@@ -3,12 +3,16 @@ import { store } from '../store';
 
 export default {
   name: 'ProjectCard',
-  props: ['pageControl'],
+  props: ['pageControl',],
   data() {
     return {
       store,
+      selectedPage: null
     }
-  }
+  },
+  methods: {
+
+  },
 }
 </script>
 
@@ -62,9 +66,15 @@ export default {
               <span aria-hidden="true">&laquo;</span>
             </button>
           </li>
-          <li class="page-item" v-for="page, index in pageControl">
-            <button class="page-link" @click="$emit('pageSelect', page.url)">{{ (index + 1) }}</button>
+
+          <li class="page-item" v-for="page, index in pageControl" v-show="isFinite(page.label)">
+            <button class="page-link" :class="(page.active) ? 'active' : ''"
+              @click="$emit('pageSelect', page.url), selectedPage = page.url">{{
+                page.label
+              }}
+            </button>
           </li>
+
           <li class="page-item">
             <button class="page-link" @click="$emit('nextPageClick')" aria-label="Next">
               <span aria-hidden="true">&raquo;</span>
