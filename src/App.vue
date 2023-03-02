@@ -12,6 +12,7 @@ export default {
       store,
       apiUrl: 'http://127.0.0.1:8000/api/projects',
       pageControl: [],
+      page: ''
     }
   },
   methods: {
@@ -34,10 +35,18 @@ export default {
     prevPage() {
       this.apiUrl = this.pageControl.prev_page_url;
       this.getProjects();
+      window.scrollTo(0, 0);
     },
     nextPage() {
       this.apiUrl = this.pageControl.next_page_url;
       this.getProjects();
+      window.scrollTo(0, 0);
+    },
+    pageSelect(pageChose) {
+      console.log(this.pageSelect)
+      this.apiUrl = pageChose;
+      this.getProjects();
+      window.scrollTo(0, 0);
     }
 
   },
@@ -52,7 +61,8 @@ export default {
   <main>
     <h1 class="mb-5">My Projects</h1>
     <!-- Import Cards -->
-    <ProjectCard @nextPageClick="nextPage()" @prevPageClick="prevPage()" />
+    <ProjectCard @nextPageClick="nextPage()" @prevPageClick="prevPage()" @pageSelect="pageSelect"
+      :pageControl="pageControl.links" />
   </main>
 </template>
 

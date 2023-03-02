@@ -3,6 +3,7 @@ import { store } from '../store';
 
 export default {
   name: 'ProjectCard',
+  props: ['pageControl'],
   data() {
     return {
       store,
@@ -60,6 +61,9 @@ export default {
             <button class="page-link" @click="$emit('prevPageClick')" aria-label="Previous">
               <span aria-hidden="true">&laquo;</span>
             </button>
+          </li>
+          <li class="page-item" v-for="page, index in pageControl">
+            <button class="page-link" @click="$emit('pageSelect', page.url)">{{ (index + 1) }}</button>
           </li>
           <li class="page-item">
             <button class="page-link" @click="$emit('nextPageClick')" aria-label="Next">
