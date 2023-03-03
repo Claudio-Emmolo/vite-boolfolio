@@ -40,7 +40,7 @@ export default {
     <main>
         <div class="container single-card mt-5">
             <div class="row">
-                <div class="col-6 p-3">
+                <div class="col-12 col-md-6 p-3">
                     <h5 class="text-uppercase text-center">{{ project.type.name }}</h5>
                     <h2 class="fw-bold text-center">{{ project.title }}</h2>
                     <p class="my-5">
@@ -66,7 +66,7 @@ export default {
                         </a>
                     </h6>
                 </div>
-                <div class="col-6">
+                <div class="col-12 col-md-6">
                     <img v-if="project.preview_img.startsWith('uploads/')"
                         :src="pageLink + '/storage/' + project.preview_img" :alt="project.title + ' img 1'"
                         class="mb-4 w-100">

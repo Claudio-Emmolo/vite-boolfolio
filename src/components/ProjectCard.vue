@@ -19,7 +19,7 @@ export default {
 <template>
   <section id="project-cards" class="container">
     <div class="row g-4">
-      <div class="col-4" v-for="project in store.dbProjects">
+      <div class="col-12 col-md-6 col-lg-4" v-for="project in store.dbProjects">
 
 
         <div class="card p-4 h-100 position-relative">

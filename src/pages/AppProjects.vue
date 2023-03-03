@@ -68,4 +68,9 @@ export default {
     </main>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+img {
+    height: 350px;
+    object-fit: cover;
+}
+</style>
