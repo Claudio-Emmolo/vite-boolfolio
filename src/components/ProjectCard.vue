@@ -55,8 +55,12 @@ export default {
 
 
           <div class="button-more position-absolute bottom-0 end-0 m-3">
-            <a href="#" class="btn btn-primary mt-5 bnt-text text-uppercase">Show More</a>
+            <router-link :to="{ name: 'project', params: { id: project.id } }"
+              class="btn btn-primary mt-5 bnt-text text-uppercase">Show
+              More
+            </router-link>
           </div>
+
         </div>
 
       </div>

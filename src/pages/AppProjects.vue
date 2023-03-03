@@ -6,7 +6,7 @@ import { store } from '../store';
 
 
 export default {
-    name: 'App',
+    name: 'AppProjects',
     components: { ProjectCard },
     data() {
         return {
