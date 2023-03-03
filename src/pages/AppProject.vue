@@ -38,16 +38,13 @@ export default {
 
 <template>
     <main>
-        <div class="container single-card border mt-5">
+        <div class="container single-card mt-5">
             <div class="row">
                 <div class="col-6 p-3">
                     <h5 class="text-uppercase text-center">{{ project.type.name }}</h5>
                     <h2 class="fw-bold text-center">{{ project.title }}</h2>
                     <p class="my-5">
-                        To Do Add Descriptio
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus quos corrupti natus autem
-                        voluptatem amet explicabo labore veritatis, veniam deserunt quisquam, in aut quam. Voluptates iste
-                        enim esse est nam.
+                        {{ project.description }}
                     </p>
                     <!-- Stars Difficulty -->
                     <h6 class="mb-3">
@@ -92,10 +89,6 @@ export default {
 </template>
 
 <style lang="scss">
-div.single-card {
-    height: 75vh;
-}
-
 h6.git-url {
     text-align: center;
     margin-top: 2.5rem;
