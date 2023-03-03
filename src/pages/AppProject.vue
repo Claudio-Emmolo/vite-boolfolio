@@ -88,7 +88,7 @@ export default {
     </main>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 h6.git-url {
     text-align: center;
     margin-top: 2.5rem;

@@ -1,6 +1,24 @@
 <script>
 export default {
-    name: 'AppHeader'
+    name: 'AppHeader',
+    data() {
+        return {
+            navItemList: [
+                {
+                    name: 'Home',
+                    url: 'home'
+                },
+                {
+                    name: 'Projects',
+                    url: 'projects'
+                },
+                {
+                    name: 'About Us',
+                    url: 'about-us'
+                },
+            ]
+        }
+    },
 }
 </script>
 
@@ -16,19 +34,10 @@ export default {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <router-link class="nav-link" :to="{ name: 'home' }">
-                                Home
-                            </router-link>
-                        </li>
-                        <li class="nav-item">
-                            <router-link class="nav-link" :to="{ name: 'projects' }">
-                                Projects
-                            </router-link>
-                        </li>
-                        <li class="nav-item">
-                            <router-link class="nav-link" :to="{ name: 'about-us' }">
-                                About Us
+                        <li class="nav-item" v-for="navItem in navItemList">
+                            <router-link class="nav-link" :class="(this.$route.name == navItem.url) ? 'active' : ''"
+                                :to="{ name: navItem.url }">
+                                {{ navItem.name }}
                             </router-link>
                         </li>
                     </ul>
@@ -38,4 +47,4 @@ export default {
     </header>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss" scoped></style>

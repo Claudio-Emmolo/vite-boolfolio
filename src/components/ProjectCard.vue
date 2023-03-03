@@ -96,7 +96,7 @@ export default {
   </section>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 div.type {
   top: 0;
   left: 50%;

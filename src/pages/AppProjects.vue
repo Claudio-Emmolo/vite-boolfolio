@@ -68,7 +68,7 @@ export default {
     </main>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 img {
     height: 350px;
     object-fit: cover;
