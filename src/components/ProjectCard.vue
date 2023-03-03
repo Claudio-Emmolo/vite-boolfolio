@@ -3,7 +3,7 @@ import { store } from '../store';
 
 export default {
   name: 'ProjectCard',
-  props: ['pageControl',],
+  props: ['pageControl', 'pageLink'],
   data() {
     return {
       store,
@@ -17,12 +17,12 @@ export default {
 </script>
 
 <template>
-  <section id="project-cards" class="container-fluid">
+  <section id="project-cards" class="container">
     <div class="row g-4">
       <div class="col-4" v-for="project in store.dbProjects">
 
 
-        <div class="card h-100 position-relative">
+        <div class="card p-4 h-100 position-relative">
           <!-- Type -->
           <div class="type position-absolute">
             <span class="fw-bold text-uppercase p-1">
@@ -30,7 +30,11 @@ export default {
             </span>
           </div>
 
-          <img :src="project.preview_img" :alt="project.title + ' img'" class="mb-4">
+          <img v-if="project.preview_img.startsWith('uploads/')" :src="pageLink + '/storage/' + project.preview_img"
+            :alt="project.title + ' img 1'" class="mb-4">
+
+          <img v-else :src="project.preview_img" :alt="project.title + ' img 2'" class="mb-4">
+
 
           <div class="text-box text-start">
             <h3 class="fw-bold mb-2">{{ project.title }}</h3>

@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       store,
+      pageLink: 'http://127.0.0.1:8000',
       apiUrl: 'http://127.0.0.1:8000/api/projects',
       pageControl: [],
       page: ''
@@ -59,10 +60,10 @@ export default {
 
 <template>
   <main>
-    <h1 class="mb-5">My Projects</h1>
+    <h1 class="mb-5 text-center">My Projects</h1>
     <!-- Import Cards -->
     <ProjectCard @nextPageClick="nextPage()" @prevPageClick="prevPage()" @pageSelect="pageSelect"
-      :pageControl="pageControl.links" />
+      :pageControl="pageControl.links" :pageLink="pageLink" />
   </main>
 </template>
 
