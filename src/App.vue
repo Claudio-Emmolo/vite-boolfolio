@@ -1,12 +1,14 @@
 <script>
 import ProjectCard from './components/ProjectCard.vue';
+import AppHeader from './components/AppHeader.vue';
+
 import axios from 'axios';
 import { store } from './store';
 
 
 export default {
   name: 'App',
-  components: { ProjectCard },
+  components: { ProjectCard, AppHeader },
   data() {
     return {
       store,
@@ -59,6 +61,8 @@ export default {
 </script>
 
 <template>
+  <AppHeader />
+
   <main>
     <h1 class="mb-5 text-center">My Projects</h1>
     <!-- Import Cards -->
